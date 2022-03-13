@@ -1,6 +1,8 @@
 package edu.miu.cs544.sujan.jobboot.service.impl;
 
+//import edu.miu.cs544.sujan.jobboot.component.Sender;
 import edu.miu.cs544.sujan.jobboot.entity.Job;
+import edu.miu.cs544.sujan.jobboot.exception.JobNotFoundException;
 import edu.miu.cs544.sujan.jobboot.repository.JobRepository;
 import edu.miu.cs544.sujan.jobboot.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ import java.util.Optional;
 public class JobServiceImpl implements JobService {
 
     private JobRepository jobRepository;
+//
+//    @Autowired
+//    private Sender sender;
 
     @Autowired
     public void setJobRepository(JobRepository jobRepository) {
@@ -22,7 +27,11 @@ public class JobServiceImpl implements JobService {
     @Override
     public Job getJobById(Long id) {
         Optional<Job> job = jobRepository.findById(id);
-        return job.orElse(null);
+        if (job.isPresent()) {
+            return job.get();
+        } else {
+            throw new JobNotFoundException("job " + id);
+        }
     }
 
     @Override
@@ -32,7 +41,9 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public Job createJob(Job job) {
-        return jobRepository.save(job);
+//        sender.createJob(job);
+//        return jobRepository.save(job);
+        return job;
     }
 
     @Override
