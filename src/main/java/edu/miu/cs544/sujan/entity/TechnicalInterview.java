@@ -18,7 +18,7 @@ public class TechnicalInterview extends Interview {
     private int duration;
     @Enumerated(EnumType.STRING)
     private Location location;
-    @OneToMany(cascade = CascadeType.PERSIST, targetEntity = Question.class)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Question.class)
     private List<Question> questions;
 
     public TechnicalInterview() {

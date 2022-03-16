@@ -15,7 +15,7 @@ public class Application {
     private LocalDate date;
     private String resumeVersion;
 
-    @OneToOne(cascade = CascadeType.PERSIST, targetEntity = Job.class)
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = Job.class)
     private Job job;
 
     public Application() {

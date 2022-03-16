@@ -32,7 +32,7 @@ public class JobCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        setData();
+        setData();
     }
 
     private void setData() {
