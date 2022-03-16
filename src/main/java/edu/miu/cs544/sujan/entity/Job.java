@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@NamedQuery(name = "Job.findJobsWithCompaniesInCertainState", query = "select j from Job as j where j.company.address.state=?1")
 public class Job implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,9 +19,9 @@ public class Job implements Serializable {
 
     private String title;
     private double salary;
-    @OneToMany(cascade = CascadeType.ALL,targetEntity = Skill.class)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Skill.class)
     private List<Skill> skills;
-    @ManyToOne(cascade = CascadeType.ALL,targetEntity = Company.class)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Company.class)
     private Company company;
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Interview.class)
@@ -80,13 +81,6 @@ public class Job implements Serializable {
 
     @Override
     public String toString() {
-        return "Job{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", salary=" + salary +
-                ", skills=" + skills +
-                ", company=" + company +
-                ", interviews=" + interviews +
-                '}';
+        return "Job{" + "id=" + id + ", title='" + title + '\'' + ", salary=" + salary + ", skills=" + skills + ", company=" + company + ", interviews=" + interviews + '}';
     }
 }

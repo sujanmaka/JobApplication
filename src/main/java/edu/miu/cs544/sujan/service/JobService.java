@@ -9,9 +9,17 @@ public interface JobService {
 
     List<Job> getJobs();
 
+    List<Job> getJobsWithApplication();
+
+    List<Job> getJobsWithCompaniesInCertainState(String state);
+
+    List<Job> getJobsWithAtLeastTwoInterviews();
+
     Job createJob(Job job);
 
     String deleteJob(Long id);
 
     Job updateJob(Long id, Job job);
+
+    List<Job> getJobsWithCertainSalaryAndCompanyInCertainState(double salary, String state);
 }

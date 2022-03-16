@@ -23,6 +23,21 @@ public class JobController {
         return jobService.getJobs();
     }
 
+    @GetMapping("/applications")
+    public List<Job> getJobsWithApplication() {
+        return jobService.getJobsWithApplication();
+    }
+
+    @GetMapping("/companies")
+    public List<Job> getJobsWithCompaniesInCertainState(@RequestParam String state) {
+        return jobService.getJobsWithCompaniesInCertainState(state);
+    }
+
+    @GetMapping("/interviews")
+    public List<Job> getJobsWithAtLeastTwoInterviews() {
+        return jobService.getJobsWithAtLeastTwoInterviews();
+    }
+
     @GetMapping("/{id}")
     public Job getJobById(@PathVariable Long id) {
         return jobService.getJobById(id);
@@ -40,6 +55,6 @@ public class JobController {
 
     @DeleteMapping("{id}")
     public String deleteJob(@PathVariable Long id) {
-       return jobService.deleteJob(id);
+        return jobService.deleteJob(id);
     }
 }

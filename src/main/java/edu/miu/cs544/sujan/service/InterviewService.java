@@ -9,6 +9,8 @@ public interface InterviewService {
 
     List<Interview> getInterviews();
 
+    List<Interview> getInterviewsWithAWeek();
+
     Interview createInterview(Interview interview);
 
     String deleteInterview(Long id);

@@ -16,8 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-//@EnableTransactionManagement
-//@EnableJpaRepositories("edu.miu.cs544.sujan.repository")
 public class EclipseLinkJpaConfiguration extends JpaBaseConfiguration {
 
     protected EclipseLinkJpaConfiguration(DataSource dataSource, JpaProperties properties, ObjectProvider<JtaTransactionManager> jtaTransactionManager) {
@@ -33,7 +31,6 @@ public class EclipseLinkJpaConfiguration extends JpaBaseConfiguration {
     protected Map<String, Object> getVendorProperties() {
         Map<String, Object> map = new HashMap<>();
         map.put(PersistenceUnitProperties.WEAVING, "false");
-//        map.put(PersistenceUnitProperties.LOGGING_LEVEL, SessionLog.FINER_LABEL);
 //        map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.DROP_AND_CREATE);
         map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.NONE);
         map.put(PersistenceUnitProperties.DDL_GENERATION_MODE, PersistenceUnitProperties.DDL_DATABASE_GENERATION);
@@ -45,7 +42,6 @@ public class EclipseLinkJpaConfiguration extends JpaBaseConfiguration {
     public static JpaProperties properties() {
         final JpaProperties jpaProperties = new JpaProperties();
         jpaProperties.setShowSql(true);
-//        jpaProperties.setDatabasePlatform("org.eclipse.persistence.platform.database.H2Platform");
         return jpaProperties;
     }
 

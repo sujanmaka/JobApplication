@@ -7,6 +7,7 @@ import edu.miu.cs544.sujan.entity.Job;
 import edu.miu.cs544.sujan.exception.DataNotFoundException;
 import edu.miu.cs544.sujan.exception.ReferentialIntegrityException;
 import edu.miu.cs544.sujan.repository.JobRepository;
+import edu.miu.cs544.sujan.repository.specification.JobSpecification;
 import edu.miu.cs544.sujan.service.JobService;
 import edu.miu.cs544.sujan.util.CustomNullAwareBeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,26 @@ public class JobServiceImpl implements JobService {
     @Override
     public List<Job> getJobs() {
         return jobRepository.findAll();
+    }
+
+    @Override
+    public List<Job> getJobsWithApplication() {
+        return jobRepository.getJobsWithApplication();
+    }
+
+    @Override
+    public List<Job> getJobsWithCompaniesInCertainState(String state) {
+        return jobRepository.findJobsWithCompaniesInCertainState(state);
+    }
+
+    @Override
+    public List<Job> getJobsWithAtLeastTwoInterviews() {
+        return jobRepository.findJobsWithAtLeastTwoInterviews();
+    }
+
+    @Override
+    public List<Job> getJobsWithCertainSalaryAndCompanyInCertainState(double salary, String state) {
+        return jobRepository.findAll(JobSpecification.jobsWithCertainSalaryAndCompanyInCertainState(salary, state));
     }
 
     @Override

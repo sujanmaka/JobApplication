@@ -38,6 +38,11 @@ public class RecruiterServiceImpl implements RecruiterService {
     }
 
     @Override
+    public List<Recruiter> getRecruitersWithJobPayingMoreThan(double salary) {
+        return recruiterRepository.findRecruitersWithJobPayingMoreThan(salary);
+    }
+
+    @Override
     public Recruiter createRecruiter(Recruiter recruiter) {
         return recruiterRepository.save(recruiter);
     }

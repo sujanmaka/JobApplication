@@ -23,6 +23,11 @@ public class RecruiterController {
         return recruiterService.getRecruiters();
     }
 
+    @GetMapping("/jobs")
+    public List<Recruiter> getRecruitersWithJobPayingMoreThan(@RequestParam double salary) {
+        return recruiterService.getRecruitersWithJobPayingMoreThan(salary);
+    }
+
     @GetMapping("/{id}")
     public Recruiter getRecruiterById(@PathVariable Long id) {
         return recruiterService.getRecruiterById(id);

@@ -23,6 +23,11 @@ public class InterviewController {
         return interviewService.getInterviews();
     }
 
+    @GetMapping("/weeks")
+    public List<Interview> getInterviewsWithAWeek() {
+        return interviewService.getInterviewsWithAWeek();
+    }
+
     @GetMapping("/{id}")
     public Interview getInterviewById(@PathVariable Long id) {
         return interviewService.getInterviewById(id);

@@ -14,4 +14,6 @@ public interface SkillService {
     String deleteSkill(Long id);
 
     Skill updateSkill(Long id, Skill skill);
+
+    List<Skill> getSkillsForCertainJobs(double salary, String state);
 }

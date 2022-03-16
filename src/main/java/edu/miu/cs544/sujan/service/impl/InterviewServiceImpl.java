@@ -9,6 +9,7 @@ import edu.miu.cs544.sujan.util.CustomNullAwareBeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +36,11 @@ public class InterviewServiceImpl implements InterviewService {
     @Override
     public List<Interview> getInterviews() {
         return interviewRepository.findAll();
+    }
+
+    @Override
+    public List<Interview> getInterviewsWithAWeek() {
+        return interviewRepository.getInterviewsWithinDate(LocalDate.now().minusDays(7), LocalDate.now());
     }
 
     @Override

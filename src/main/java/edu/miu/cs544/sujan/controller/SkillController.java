@@ -23,6 +23,11 @@ public class SkillController {
         return skillService.getSkills();
     }
 
+    @GetMapping("/jobs")
+    public List<Skill> getSkillsForCertainJobs(@RequestParam double salary, @RequestParam String state) {
+        return skillService.getSkillsForCertainJobs(salary, state);
+    }
+
     @GetMapping("/{id}")
     public Skill getSkillById(@PathVariable Long id) {
         return skillService.getSkillById(id);

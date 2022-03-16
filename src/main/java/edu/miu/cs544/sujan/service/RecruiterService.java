@@ -9,6 +9,8 @@ public interface RecruiterService {
 
     List<Recruiter> getRecruiters();
 
+    List<Recruiter> getRecruitersWithJobPayingMoreThan(double salary);
+
     Recruiter createRecruiter(Recruiter recruiter);
 
     String deleteRecruiter(Long id);
