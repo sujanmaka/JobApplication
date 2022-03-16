@@ -1,7 +1,6 @@
 package edu.miu.cs544.sujan.config;
 
 import org.eclipse.persistence.config.PersistenceUnitProperties;
-import org.eclipse.persistence.logging.SessionLog;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
@@ -36,7 +35,7 @@ public class EclipseLinkJpaConfiguration extends JpaBaseConfiguration {
         map.put(PersistenceUnitProperties.WEAVING, "false");
 //        map.put(PersistenceUnitProperties.LOGGING_LEVEL, SessionLog.FINER_LABEL);
 //        map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.DROP_AND_CREATE);
-        map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.DROP_AND_CREATE);
+        map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.NONE);
         map.put(PersistenceUnitProperties.DDL_GENERATION_MODE, PersistenceUnitProperties.DDL_DATABASE_GENERATION);
         return map;
     }

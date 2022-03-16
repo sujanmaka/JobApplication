@@ -8,12 +8,12 @@ import java.util.List;
 
 @Entity
 public class TechnicalInterview extends Interview {
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @Version
-    private int version;
+//    @Id
+//    @GeneratedValue
+//    private Long id;
+//
+//    @Version
+//    private int version;
 
     private int duration;
     @Enumerated(EnumType.STRING)
@@ -32,9 +32,9 @@ public class TechnicalInterview extends Interview {
         this.questions = questions;
     }
 
-    public Long getId() {
-        return id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
 
     public int getDuration() {
         return duration;

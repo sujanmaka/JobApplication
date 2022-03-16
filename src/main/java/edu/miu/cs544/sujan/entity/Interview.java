@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Inheritance(strategy= InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Interview implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -59,11 +59,6 @@ public class Interview implements Serializable {
 
     @Override
     public String toString() {
-        return "Interview{" +
-                "id=" + id +
-                ", date=" + date +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return "Interview{" + "id=" + id + ", date=" + date + ", phone='" + phone + '\'' + ", email='" + email + '\'' + '}';
     }
 }

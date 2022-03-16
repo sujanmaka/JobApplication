@@ -5,6 +5,7 @@ package edu.miu.cs544.sujan.service.impl;
 import edu.miu.cs544.sujan.component.Sender;
 import edu.miu.cs544.sujan.entity.Job;
 import edu.miu.cs544.sujan.exception.DataNotFoundException;
+import edu.miu.cs544.sujan.exception.ReferentialIntegrityException;
 import edu.miu.cs544.sujan.repository.JobRepository;
 import edu.miu.cs544.sujan.service.JobService;
 import edu.miu.cs544.sujan.util.CustomNullAwareBeanUtils;
@@ -50,8 +51,12 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public String deleteJob(Long id) {
-        jobRepository.delete(getJobById(id));
-        return String.format("Job with id %d deleted successfully", id);
+        try {
+            jobRepository.delete(getJobById(id));
+            return String.format("Job with id %d deleted successfully", id);
+        } catch (Exception exception) {
+            throw new ReferentialIntegrityException(String.format("Job with id %d is referenced by other entity.", id));
+        }
     }
 
     @Override

@@ -5,12 +5,12 @@ import java.time.LocalDate;
 
 @Entity
 public class ScreeningInterview extends Interview {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-
-    @Version
-    private int version;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    private Long id;
+//
+//    @Version
+//    private int version;
 
     private String name;
     private String result;
@@ -25,9 +25,9 @@ public class ScreeningInterview extends Interview {
         this.result = result;
     }
 
-    public Long getId() {
-        return id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
 
     public String getName() {
         return name;
