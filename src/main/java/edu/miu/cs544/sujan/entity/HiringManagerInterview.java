@@ -1,6 +1,6 @@
 package edu.miu.cs544.sujan.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
 @Entity

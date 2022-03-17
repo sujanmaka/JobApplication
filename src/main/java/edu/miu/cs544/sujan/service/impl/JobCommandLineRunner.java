@@ -32,7 +32,7 @@ public class JobCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        setData();
+        setData();
     }
 
     private void setData() {
@@ -71,9 +71,6 @@ public class JobCommandLineRunner implements CommandLineRunner {
 
         job1.setCompany(company);
         Application application1 = new Application(LocalDate.now(), "2.0", job1);
-//        Application application2 = new Application(LocalDate.now(), "3.0", job2);
         applicationRepository.save(application1);
-//        applicationRepository.save(application2);
-
     }
 }

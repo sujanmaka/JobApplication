@@ -31,8 +31,8 @@ public class EclipseLinkJpaConfiguration extends JpaBaseConfiguration {
     protected Map<String, Object> getVendorProperties() {
         Map<String, Object> map = new HashMap<>();
         map.put(PersistenceUnitProperties.WEAVING, "false");
-//        map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.DROP_AND_CREATE);
-        map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.NONE);
+        map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.DROP_AND_CREATE);
+//        map.put(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.NONE);
         map.put(PersistenceUnitProperties.DDL_GENERATION_MODE, PersistenceUnitProperties.DDL_DATABASE_GENERATION);
         return map;
     }
